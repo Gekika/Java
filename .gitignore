@@ -1,0 +1,19 @@
+# Ignore IntelliJ
+.idea/
+
+# Ignore backend build files
+backend/target/
+backend/build/
+
+# Ignore backend configs
+backend/.env
+backend/application.properties
+backend/application.yml
+
+# Logs
+backend/logs/
+*.log
+
+
+# Docker overrides
+backend/docker-compose.override.yml
