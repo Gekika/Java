@@ -1,5 +1,6 @@
 package com.gekika.backend.models;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 
 @Entity
