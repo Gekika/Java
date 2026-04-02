@@ -20,10 +20,10 @@ public class CategoryService {
     public void createCategory(Category category) {
         categoryRepository.save(category);
     }
-    public Optional <Category> findCategoryById(Integer categoryId) {
+    public Optional <Category> readCategoryById(Integer categoryId) {
         return categoryRepository.findById(categoryId);
     }
-    public Category findCategoryByCategoryName(String categoryName) {
+    public Category readCategoryByCategoryName(String categoryName) {
         return categoryRepository.findByCategoryName(categoryName);
     }
     public void deleteCategoryById(Integer categoryId) {
