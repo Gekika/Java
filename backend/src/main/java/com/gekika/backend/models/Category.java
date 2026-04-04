@@ -7,22 +7,19 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "categories")
-
-
+@Getter
+@Setter
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Getter
     @Column(name = "category_name")
     private String categoryName;
-    @Getter
-    @Setter
+
     private String description;
-    @Setter
-    @Getter
+
     private String imageUrl;
 
     public Category() {
