@@ -22,7 +22,7 @@ public class CategoryController {
         List<Category> body = categoryService.listcategories();
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
-    @GetMapping("/{categoryID}")
+    @PutMapping("/{categoryID}")
     public ResponseEntity<Void> updateCategory(@PathVariable("categoryID")Integer categoryID, @RequestBody Category category ){
         if(Objects.nonNull(categoryService.readCategoryById(categoryID))) {
             categoryService.updateCategory(categoryID , category);
