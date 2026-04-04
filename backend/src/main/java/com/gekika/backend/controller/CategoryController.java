@@ -22,10 +22,18 @@ public class CategoryController {
         List<Category> body = categoryService.listcategories();
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
+    @GetMapping("/{categoryID}")
+    public ResponseEntity<Void> updateCategory(@PathVariable("categoryID")Integer categoryID, @RequestBody Category category ){
+        if(Objects.nonNull(categoryService.readCategoryById(categoryID))) {
+            categoryService.updateCategory(categoryID , category);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
     @PostMapping("/")
     public ResponseEntity<Void> createCategory(@RequestBody Category category){
-        if(Objects.nonNull(categoryService.findCategoryByCategoryName(category.getCategoryName()))){
+        if(Objects.nonNull(categoryService.readCategoryByCategoryName(category.getCategoryName()))){
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
             }
         categoryService.createCategory(category);
