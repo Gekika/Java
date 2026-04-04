@@ -22,4 +22,14 @@ public class Product {
     @ManyToOne(fetch =  FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
+
+    public Product(){
+        }
+
+    public Product(@NonNull String name,@NonNull String ImageUrl,@NonNull double price,@NonNull String description ){
+        this.name = name;
+        this.ImageUrl = ImageUrl;
+        this.price = price;
+        this.description = description;
+    }
 }
