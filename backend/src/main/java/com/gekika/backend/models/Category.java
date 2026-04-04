@@ -2,6 +2,8 @@ package com.gekika.backend.models;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "categories")
@@ -10,15 +12,21 @@ import jakarta.persistence.*;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Getter
     @Column(name = "category_name")
     private String categoryName;
+    @Getter
+    @Setter
     private String description;
+    @Setter
+    @Getter
     private String imageUrl;
 
-    public Category() { }
+    public Category() {
+    }
 
     public Category(String categoryName, String description, String imageUrl) {
         this.categoryName = categoryName;
@@ -26,24 +34,8 @@ public class Category {
         this.imageUrl = imageUrl;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
 
     public void setCategoryName(String categoryName) {
     }
 
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public String getImageUrl() {
-        return imageUrl;
-    }
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
 }
